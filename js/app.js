@@ -86,9 +86,6 @@ div5.appendChild(p2);
 
 
 // create navbar
-//const ul = document.querySelector("#navbar__list");
-//ul.insertAdjacentHTML("beforeend", '<li>Section 1</li><li>Section 2</li><li>Section 3</li><li>Section 4</li><li>Section 5</li>');
-
 //select all sections present and put them in an array
 const sections = Array.from(document.getElementsByTagName("section"));
 
@@ -99,11 +96,14 @@ const menu = document.getElementById('navbar__list');
 for(section of sections){
        const listItem = document.createElement('li');
        const listItemLink = document.createElement('a');
+       //let sectionDataNav = element.getAttribute('data-nav');
        // use the section data-nav to fill the <a> tag
        listItemLink.textContent = section.dataset.nav;
+       //listItemLink.innerHTML = `<a onClick="scrollToSection(${toOfOffSection})">${section.dataset.nav}</a>`;
        listItem.appendChild(listItemLink);
        menu.appendChild(listItem);
 }
+
 
 // const menuLinks = document.getElementsByTagName('li');
 // menuLinks[0].setAttribute('href', '#section1');
@@ -124,12 +124,22 @@ const menuLinks = document.querySelectorAll('a');
 // menuLinks[4].setAttribute('id', 'link-section5');
 
 
-menuLinks.forEach((item) => {
-    item.addEventListener('click', () => {
-        const el = document.getElementById(item.getAttribute('data-nav'));
-        el.scrollIntoView({behavior: 'smooth', block: 'start'})
-    })
-})
+menuLinks.forEach((item, index) => {
+     item.addEventListener('click', () => {
+       const el = document.getElementById(`section${index + 1}`);
+       el.scrollIntoView({ behavior: 'smooth', block: 'start' });
+       menuLinks.classList.remove('active');
+       this.classList.add('active');
+     });
+     
+});
+
+
+
+
+
+
+
 
 // create to-top button
 const toTopButton = document.querySelector('#to-top');
