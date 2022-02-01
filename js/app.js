@@ -96,43 +96,29 @@ const menu = document.getElementById('navbar__list');
 for(section of sections){
        const listItem = document.createElement('li');
        const listItemLink = document.createElement('a');
-       //let sectionDataNav = element.getAttribute('data-nav');
        // use the section data-nav to fill the <a> tag
        listItemLink.textContent = section.dataset.nav;
-       //listItemLink.innerHTML = `<a onClick="scrollToSection(${toOfOffSection})">${section.dataset.nav}</a>`;
        listItem.appendChild(listItemLink);
        menu.appendChild(listItem);
 }
 
 
-// const menuLinks = document.getElementsByTagName('li');
-// menuLinks[0].setAttribute('href', '#section1');
-// menuLinks[1].setAttribute('href', '#section2');
-// menuLinks[2].setAttribute('href', '#section3');
-// menuLinks[3].setAttribute('href', '#section4');
-// menuLinks[4].setAttribute('href', '#section5');
 
-
-
-// Create a loop that creates nav click and scroll events
-const menuLinks = document.querySelectorAll('a');
-
-// menuLinks[0].setAttribute('id', 'link-section1');
-// menuLinks[1].setAttribute('id', 'link-section2');
-// menuLinks[2].setAttribute('id', 'link-section3');
-// menuLinks[3].setAttribute('id', 'link-section4');
-// menuLinks[4].setAttribute('id', 'link-section5');
-
+// Create a loop that creates nav click and scroll event
+const menuLinks = document.querySelectorAll('li');
 
 menuLinks.forEach((item, index) => {
-     item.addEventListener('click', () => {
+     item.addEventListener("click", () => {
        const el = document.getElementById(`section${index + 1}`);
-       el.scrollIntoView({ behavior: 'smooth', block: 'start' });
-       menuLinks.classList.remove('active');
-       this.classList.add('active');
+       el.scrollIntoView({ behavior: "smooth", block: "start" });
+       console.log(item.parentElement.children);
+       // remove the class from all elements
+       for (element of item.parentElement.children) {
+         element.classList.remove("active");
+       }
+       item.classList.add("active");
      });
-     
-});
+   });
 
 
 

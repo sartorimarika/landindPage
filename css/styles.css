@@ -26,12 +26,6 @@ h1 {
     margin: 2em 1rem;
 }
 
-@media only screen and (min-width: 35em){
-    h1 {
-        font-size: 7em;
-        margin: 2em 4rem 1em;
-    }
-}
 
 h2 {
     border-bottom: 1px solid #cc1;
@@ -64,6 +58,7 @@ section {
 /* ----- Module Rules ---- */
 
 /* Navigation Styles*/
+
  .navbar__menu ul {
     display: flex;
     flex-direction: row;
@@ -71,7 +66,7 @@ section {
     padding-left: 0;
     margin: 0;
     text-align: right;
-    border: 5px solid red;
+    /*border: 5px solid red;*/
 }
 
  .navbar__menu li {
@@ -81,10 +76,15 @@ section {
     padding: 0.8em;
 }
 
-li:hover {
+li a {
     cursor: pointer;
 }
 
+#navbar__list a:hover {
+    text-decoration: underline;
+    font-weight: bold;
+    transition: ease 0.3s all;
+}
 
 a,
 a:visited,
@@ -93,14 +93,15 @@ a:active {
 }
 
 .active {
-	background-color: cyan;
+	background-color: rgb(0,13,60);
 	font-weight: bold;
 }
 
-#navbar__list li {
-    color: black;
-    padding: 1em;
+.active a {
+    color: #fff;
+
 }
+
 
 #navbar__list a {
     color: inherit;
@@ -108,40 +109,66 @@ a:active {
     text-decoration: none;
 }
 
-#navbar__list a:hover {
-    text-decoration: underline;
-    font-weight: bold;
-    color: orange;
-    cursor: pointer;
-    
-}
 
-
-@media only screen and (max-width: 35em){
-    .navbar__menu ul {
-        display: flex;
-        flex-direction: column;
-    }
-
-    .navbar_menu li {
-        padding: 0.1em;
-    }
-}
-
-
-.navbar__menu .menu__link {
-    display: block;
-    padding: 1em;
-    font-weight: bold;
-    text-decoration: none;
-    color: #000;
-}
 
 .navbar__menu .menu__link:hover {
     background: #333;
     color: #fff;
-    transition: ease 0.3s all;
+    
 }
+
+/* PHONE */
+
+@media only screen and (max-width: 35em){
+    h1 {
+        color: red;
+    }
+  
+    nav {
+        width: 100vw;
+        overflow-y: scroll;
+        white-space: nowrap;
+
+    }
+    #navbar__list {
+        -webkit-overflow-scrolling: touch;
+        border: 1px solid yellow;
+        justify-content: flex-start;
+    }
+
+    li {
+        padding: 0.1em;
+        display: inline-block;
+    }
+
+    nav::-webkit-scrollbar {
+        -webkit-appearance: none;
+        background: hsl(55, 49%, 85%);
+      }
+    
+    
+    nav::-webkit-scrollbar:horizontal {
+        height: 0.3em;
+      }
+    nav::-webkit-scrollbar:vertical {
+        width: 0;
+      }
+
+    nav::-webkit-scrollbar-thumb:horizontal {
+        height: 0.8em;
+        background: #cc1;
+        
+    }
+
+   a {
+        font-size: 0.9rem;
+    }
+}
+
+
+
+
+
 
 
 
@@ -173,12 +200,25 @@ a:active {
     text-align: left;
 }
 
+
+/* DESKTOP TABLET*/
 @media only screen and (min-width: 35em){
+    h1{
+        color: cyan;
+        font-size: 7em;
+        margin: 2em 4rem 1em;
+    }
     .landing__container {
         max-width: 50em;
         padding: 4em;
     }
+
+    .navbar__menu {
+        position: initial;
+        border: 2px solid yellow;
+    }
 }
+
 
 section:nth-of-type(even) .landing__container {
     margin-right: 0;
