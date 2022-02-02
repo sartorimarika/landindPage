@@ -58,6 +58,9 @@ section {
 /* ----- Module Rules ---- */
 
 /* Navigation Styles*/
+ .navbar__menu {
+    border-top: 1px solid rgba(139, 139, 139, 0.411);
+ }
 
  .navbar__menu ul {
     display: flex;
@@ -74,6 +77,11 @@ section {
     border-left: 1px solid rgba(139, 139, 139, 0.411);
     padding: 0.8em;
 }
+
+li:last-child {
+    border-right: 1px solid rgba(139, 139, 139, 0.411);
+}
+
 
 li a {
     cursor: pointer;
