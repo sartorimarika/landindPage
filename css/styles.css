@@ -66,13 +66,12 @@ section {
     padding-left: 0;
     margin: 0;
     text-align: right;
-    /*border: 5px solid red;*/
 }
 
  .navbar__menu li {
     display: inline-block;
     color: rgba(0,13,60,1);
-    border: 2px solid green;
+    border-left: 1px solid rgba(139, 139, 139, 0.411);
     padding: 0.8em;
 }
 
@@ -81,23 +80,23 @@ li a {
 }
 
 #navbar__list a:hover {
-    text-decoration: underline;
     font-weight: bold;
     transition: ease 0.3s all;
+    background-color: rgb(204, 204, 204);
 }
 
 a,
 a:visited,
 a:active {
-	color:inherit;
+	color:white;
 }
 
 .active {
-	background-color: rgb(0,13,60);
+	background-color: rgb(204, 204, 204);
 	font-weight: bold;
 }
 
-.active a {
+.link {
     color: #fff;
 
 }
@@ -111,19 +110,12 @@ a:active {
 
 
 
-.navbar__menu .menu__link:hover {
-    background: #333;
-    color: #fff;
-    
-}
+
 
 /* PHONE */
 
 @media only screen and (max-width: 35em){
-    h1 {
-        color: red;
-    }
-  
+
     nav {
         width: 100vw;
         overflow-y: scroll;
@@ -132,7 +124,6 @@ a:active {
     }
     #navbar__list {
         -webkit-overflow-scrolling: touch;
-        border: 1px solid yellow;
         justify-content: flex-start;
     }
 
@@ -149,18 +140,18 @@ a:active {
     
     nav::-webkit-scrollbar:horizontal {
         height: 0.3em;
-      }
+    }
+    
     nav::-webkit-scrollbar:vertical {
         width: 0;
-      }
+    }
 
     nav::-webkit-scrollbar-thumb:horizontal {
         height: 0.8em;
         background: #cc1;
-        
     }
 
-   a {
+    a {
         font-size: 0.9rem;
     }
 }
@@ -204,7 +195,6 @@ a:active {
 /* DESKTOP TABLET*/
 @media only screen and (min-width: 35em){
     h1{
-        color: cyan;
         font-size: 7em;
         margin: 2em 4rem 1em;
     }
@@ -215,7 +205,6 @@ a:active {
 
     .navbar__menu {
         position: initial;
-        border: 2px solid yellow;
     }
 }
 

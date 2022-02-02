@@ -41,13 +41,6 @@
  * 
 */
 
-// build the nav
-
-
-// Add class 'active' to section when near top of viewport
-
-
-// Scroll to anchor ID using scrollTO event
 
 
 /**
@@ -56,11 +49,6 @@
  * 
 */
 
-// Build menu 
-
-// Scroll to section on link click
-
-// Set sections as active
 
 
 // Create section 5
@@ -85,23 +73,23 @@ div5.appendChild(p1);
 div5.appendChild(p2);
 
 
-// create navbar
+// Create navbar
 //select all sections present and put them in an array
 const sections = Array.from(document.getElementsByTagName("section"));
 
-//select the #navbar__list, where we want to add <li> items
+// Create a function to create <li> dynamically
+// Select the #navbar__list, where we want to add <li> items
 const menu = document.getElementById('navbar__list');
 
-//create a function to create <li> dynamically
 for(section of sections){
        const listItem = document.createElement('li');
        const listItemLink = document.createElement('a');
+       listItemLink.className = 'link';
        // use the section data-nav to fill the <a> tag
        listItemLink.textContent = section.dataset.nav;
        listItem.appendChild(listItemLink);
        menu.appendChild(listItem);
 }
-
 
 
 // Create a loop that creates nav click and scroll event
@@ -122,12 +110,29 @@ menuLinks.forEach((item, index) => {
 
 
 
+// Add active class to sections
+let secMain = document.querySelectorAll("section");
+
+document.addEventListener("scroll", () => {
+	let currentPosition = 0;
+  currentPosition = this.scrollY;
+  let secMainPositions = [];
+	secMain.forEach((element) => secMainPositions.push(element.getBoundingClientRect().top + 50));
+  
+  let addIndex = secMainPositions.findIndex((element) => element > 0);
+  for (let i = 0; i < secMain.length; i++) {
+    if (addIndex === i) {
+			document.querySelector(`#section${addIndex + 1}`).classList.add("your-active-class");
+		} else {
+			document.querySelector(`#section${i + 1}`).classList.remove("your-active-class");
+		}
+  }
+
+});
+ 
 
 
-
-
-
-// create to-top button
+// Create to-top button
 const toTopButton = document.querySelector('#to-top');
 
 const scrollFunc = function () {
