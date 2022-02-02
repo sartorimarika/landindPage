@@ -80,9 +80,8 @@ li a {
 }
 
 #navbar__list a:hover {
-    font-weight: bold;
+    text-decoration: underline;
     transition: ease 0.3s all;
-    background-color: rgb(204, 204, 204);
 }
 
 a,
@@ -92,7 +91,7 @@ a:active {
 }
 
 .active {
-	background-color: rgb(204, 204, 204);
+	background-color: rgb(218, 231, 236);
 	font-weight: bold;
 }
 
