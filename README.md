@@ -1,4 +1,7 @@
 # Landing Page Project
+Udacity Front End Web Developer Nanodegree Program 2022 - Javascript & The DOM section
+Project 2 - Landing Page
+Project rubric: https://review.udacity.com/#!/rubrics/3601/view
 
 ## Table of Contents
 
