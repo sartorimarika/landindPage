@@ -1,56 +1,3 @@
-/**
- * 
- * Manipulating the DOM exercise.
- * Exercise programmatically builds navigation,
- * scrolls to anchors from navigation,
- * and highlights section in viewport upon scrolling.
- * 
- * Dependencies: None
- * 
- * JS Version: ES2015/ES6
- *
- * 
- * *
- * 
- * JS Standard: ESlint
- * 
-*/
-
-/**
- * Comments should be present at the beginning of each procedure and class.
- * Great to have comments before crucial code sections within the procedure.
-*/
-
-/**
- * Define Global Variables
- * 
-*/
-
-
-/**
- * End Global Variables
- * Start Helper Functions
- * 
-*/
-
-
-
-/**
- * End Helper Functions
- * Begin Main Functions
- * 
-*/
-
-
-
-/**
- * End Main Functions
- * Begin Events
- * 
-*/
-
-
-
 // Create section 5
 let main = document.getElementById('main');
 let section5 = document.createElement('section');
@@ -75,7 +22,7 @@ div5.appendChild(p2);
 
 // Create navbar
 //select all sections present and put them in an array
-const sections = Array.from(document.getElementsByTagName("section"));
+const sections = Array.from(document.getElementsByTagName('section'));
 
 // Create a function to create <li> dynamically
 // Select the #navbar__list, where we want to add <li> items
@@ -96,24 +43,23 @@ for(section of sections){
 const menuLinks = document.querySelectorAll('li');
 
 menuLinks.forEach((item, index) => {
-     item.addEventListener("click", () => {
+     item.addEventListener('click', () => {
        const el = document.getElementById(`section${index + 1}`);
-       el.scrollIntoView({ behavior: "smooth", block: "start" });
+       el.scrollIntoView({ behavior: 'smooth', block: 'start' });
        console.log(item.parentElement.children);
        // remove the class from all elements
        for (element of item.parentElement.children) {
-         element.classList.remove("active");
+         element.classList.remove('active');
        }
-       item.classList.add("active");
+       item.classList.add('active');
      });
-   });
-
+});
 
 
 // Add active class to sections
-let secMain = document.querySelectorAll("section");
+let secMain = document.querySelectorAll('section');
 
-document.addEventListener("scroll", () => {
+document.addEventListener('scroll', () => {
 	let currentPosition = 0;
   currentPosition = this.scrollY;
   let secMainPositions = [];
@@ -122,9 +68,9 @@ document.addEventListener("scroll", () => {
   let addIndex = secMainPositions.findIndex((element) => element > 0);
   for (let i = 0; i < secMain.length; i++) {
     if (addIndex === i) {
-			document.querySelector(`#section${addIndex + 1}`).classList.add("your-active-class");
+			document.querySelector(`#section${addIndex + 1}`).classList.add('your-active-class');
 		} else {
-			document.querySelector(`#section${i + 1}`).classList.remove("your-active-class");
+			document.querySelector(`#section${i + 1}`).classList.remove('your-active-class');
 		}
   }
 
@@ -138,19 +84,19 @@ const toTopButton = document.querySelector('#to-top');
 const scrollFunc = function () {
     const y = window.scrollY;
     if (y >= 300) {
-        toTopButton.className = "to-top-show";
+        toTopButton.className = 'to-top-show';
     } else {
-        toTopButton.className = "to-top-hide";
+        toTopButton.className = 'to-top-hide';
     }
-};
+}
 
-window.addEventListener("scroll", scrollFunc);
+window.addEventListener('scroll', scrollFunc);
 
 toTopButton.addEventListener('click', () => {
     window.scrollTo({
         top: 0,
         left: 0,
-        behavior: "smooth"
+        behavior: 'smooth'
     });
 });
 
